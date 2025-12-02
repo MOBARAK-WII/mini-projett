@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Réservation et Commande - Restaurant</title>
+
+    <link rel="stylesheet" href="C:\Users\mbark\Downloads\style de minii projet.css">
+</head>
+
+<body>
+    <video src="https://assets.mixkit.co/videos/41858/41858-720.mp4" id="myVideo"></video>
+    <div class="container">
+        <h2>Réserver une table</h2>
+
+        <form class="inpo">
+            <div class="form-group">
+                <label>Nom complet :</label>
+                <input type="text" placeholder="Entrez votre nom" required pattern="[a-zA-Z\s]+$" maxlength="16"
+                    minlength="3">
+            </div>
+
+            <div class="form-group">
+                <label>Email :</label>
+                <input type="email" placeholder="exemple@mail.com" required
+                    pattern="[a-z0-9._%+-]+@[gmail]+.[com]{3,}$">
+            </div>
+
+            <div class="form-group">
+                <label>Téléphone :</label>
+                <input type="tel" placeholder="06 00 00 00 00" required pattern="(05|06|07)[0-9]{8}$">
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label>Date :</label>
+                    <input type="date" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Heure :</label>
+                    <input type="time" required min="09:00" max="22:00">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre de personnes :</label>
+                <input type="number" min="1" max="20" required>
+            </div>
+
+            <button id="boton">Réserver</button>
+        </form>
+    </div>
+
+
+    <div class="container">
+        <h2>Passer une commande</h2>
+
+        <form>
+            <div class="form-group">
+                <label>Choisir un plat :</label>
+                <select id="plat">
+                    <option value="0">-- Sélectionnez --</option>
+                    <option value="50">hhhhhhhhhhhh 00 DH</option>
+                    <option value="70">jjjjjjjjjj00 DH</option>
+                    <option value="40">kkkkkkk 00 DH</option>
+                    <option value="20">llllllll 00 DH</option>
+                    <option value="10">pppppppp 0 DH</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Quantité :</label>
+                <input type="number" id="quantite" value="1" min="1">
+            </div>
+
+            <button id="boton">Commander</button>
+        </form>
+
+</body>
+
+</html>
