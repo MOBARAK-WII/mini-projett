@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - DeliciousFood</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #c2820b 0%, #ad6910 100%);
+            color: #333;
+            line-height: 1.6; 
+           
+        }
+
+        .header {
+            background: linear-gradient(to right, #f8ae3f, #ad4d09);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: -50px auto 50px;
+            padding: 0 2rem;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .contact-info h2 {
+            color: #dd6b20;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #dd6b20;
+            padding-bottom: 0.5rem;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: start;
+            margin-bottom: 1.8rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .info-item:hover {
+            transform: translateX(5px);
+            background: #fff5f5;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ebad77, #9b4114);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+            box-shadow: 0 4px 15px rgba(35, 19, 4, 0.3);
+        }
+
+        .info-content h3 {
+            color: #151402;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .info-content p {
+            color: #827c7c;
+            line-height: 1.8;
+        }
+
+        .form-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-container h2 {
+            color: #a16925;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff6b6b;
+            box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #eb4204, #ce7e15);
+            color: white;
+            padding: 1rem 3rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 107, 107, 0.3);
+        }
+
+        .map-container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 2rem;
+        }
+
+        .map-container h2 {
+            color:  #dd6b20;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        .map-frame {
+            width: 100%;
+            height: 450px;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .hours-section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 2rem;
+        }
+
+        .hours-section h2 {
+            color: #dd6b20;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-align: center;
+            border-bottom: 3px solid #ff6b6b;
+            padding-bottom: 0.5rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .day-hours {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            border-left: 4px solid  #dd6b20;
+            transition: all 0.3s ease;
+        }
+
+        .day-hours:hover {
+            background: #fff5f5;
+            transform: translateX(5px);
+        }
+
+        .day-hours .day {
+            font-weight: 600;
+            color: #333;
+        }
+
+        .day-hours .time {
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                margin-top: -30px;
+            }
+            #myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    object-fit: cover;
+}
+
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="header">
+        <h1>DeliciousFood</h1>
+        <p>Contactez-nous pour réserver votre table ou pour toute information</p>
+    </div>
+    
+    <video autoplay muted loop playsinline id="myVideo">
+        <source src="#">
+        Votre navigateur ne supporte pas la vidéo HTML5.
+    </video>
+
+    <div class="container">
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h2>Nos Coordonnées</h2>
+                
+                <div class="info-item">
+                    <div class="icon">📍</div>
+                    <div class="info-content">
+                        <h3>Adresse</h3>
+                        <p>Place Jemaa el-Fna<br>
+                        Médina de Marrakech<br>
+                        Marrakech 40000, Maroc</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">📞</div>
+                    <div class="info-content">
+                        <h3>Téléphone</h3>
+                        <p>+212 524 123 456<br>
+                        +212 661 234 567</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">✉️</div>
+                    <div class="info-content">
+                        <h3>Email</h3>
+                        <p>contact@deliciousfood.ma<br>
+                        reservation@deliciousfood.ma</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="icon">🌐</div>
+                    <div class="info-content">
+                        <h3>Réseaux Sociaux</h3>
+                        <p>Facebook: @DeliciousFoodMarrakech<br>
+                        Instagram: @delicious_food_ma<br>
+                        WhatsApp: +212 661 234 567</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-container">
+                <h2>Envoyez-nous un Message</h2>
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label for="name">Nom Complet *</label>
+                        <input type="text" id="name" name="name" required placeholder="Votre nom complet">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="votre.email@exemple.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Téléphone</label>
+                        <input type="tel" id="phone" name="phone" pattern="[0-9+\s\-()]+" placeholder="+212 6XX XXX XXX">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="L'objet de votre message">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" required placeholder="Écrivez votre message ici..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Envoyer le Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="hours-section">
+            <h2>Horaires d'Ouverture</h2>
+            <div class="hours-grid">
+                <div class="day-hours">
+                    <span class="day">Lundi</span>
+                    <span class="time">12:00 - 23:00</span>
+                </div>
+                <div class="day-hours">
+                    <span class="day">Mardi</span>
+                    <span class="time">12:00 - 23:00</span>
+                </div>
+                <div class="day-hours">
+                    <span class="day">Mercredi</span>
+                    <span class="time">12:00 - 23:00</span>
+                </div>
+                <div class="day-hours">
+                    <span class="day">Jeudi</span>
+                    <span class="time">12:00 - 23:00</span>
+                </div>
+                <div class="day-hours">
+                    <span class="day">Vendredi</span>
+                    <span class="time">12:00 - 00:00</span>
+                </div>
+                <div class="day-hours">
+                    <span class="day">Samedi</span>
+                    <span class="time">12:00 - 00:00</span>
+                </div>
+                <div class="day-hours">
+                    <span class="day">Dimanche</span>
+                    <span class="time">12:00 - 23:00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <h2>Localisez-nous</h2>
+            <iframe class="map-frame"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-7.9945%2C31.6235%2C-7.9845%2C31.6285&layer=mapnik&marker=31.6260,-7.9895"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</body>
+</html>
